@@ -6,10 +6,10 @@ export interface LoginPresenterProps {
 }
 
 export function LoginPresenter (props: LoginPresenterProps) {
-    return (
-      <div>
-        <h2> Login Page </h2>
-        <BasicButton onClick={props.onAuthenticateClick} title="Authenticate"/>
-      </div>
-    );
+  return (
+    <div>
+      <h2> Login Page </h2>
+      <BasicButton onClick={props.onAuthenticateClick} title="Authenticate"/>
+    </div>
+  );
 }

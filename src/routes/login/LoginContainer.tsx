@@ -1,8 +1,5 @@
 import * as React from 'react';
-import { LoginPresenter } from './LoginPresenter';
-import { loginRequest } from './actions';
 import { connect } from 'react-redux';
-import { isAuthenticated } from '../../reducers/reducers';
 import { Location, History } from 'history';
 import {
   BrowserRouter as Router,
@@ -11,6 +8,9 @@ import {
   Redirect,
   withRouter,
 } from 'react-router-dom';
+import actions from './../../state/actions';
+import selectors from './../../state/selectors';
+import { LoginPresenter } from './LoginPresenter';
 
 export interface LoginContainerProps {
   isAuthenticated: boolean;
@@ -43,15 +43,15 @@ class LoginContainer extends React.Component<LoginContainerProps, {}> {
 }
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: isAuthenticated(state),
+  isAuthenticated: selectors.context.isAuthenticated(state),
 });
 
 function mapDispatchToProps(dispatch: Function) {
-    return {
-        requestLogin: ({}) => {
-            dispatch(loginRequest({}));
-        },
-    };
+  return {
+    requestLogin: ({}) => {
+        dispatch(actions.context.loginRequest({}));
+    },
+  };
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginContainer));
