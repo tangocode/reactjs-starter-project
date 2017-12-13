@@ -7,3 +7,11 @@ export interface AppState {
 export interface Action {
   type: string;
 }
+
+export interface ApiDefinition {
+  method: string;
+  headers: Object;
+  path: string;
+  basePath: string;
+  body?: Object;
+}
