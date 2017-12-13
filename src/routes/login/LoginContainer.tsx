@@ -26,7 +26,7 @@ class LoginContainer extends React.Component<LoginContainerProps, {}> {
   }
 
   onAuthenticateClick() {
-    this.props.requestLogin({});
+    this.props.requestLogin({ username: 'demo-username', password: 'demo-password'});
   }
 
   render() {
@@ -48,8 +48,8 @@ const mapStateToProps = (state) => ({
 
 function mapDispatchToProps(dispatch: Function) {
     return {
-        requestLogin: ({}) => {
-            dispatch(loginRequest({}));
+        requestLogin: (credentials) => {
+            dispatch(loginRequest(credentials));
         },
     };
 }

@@ -1,4 +1,4 @@
-import { Reducer } from 'redux';
+import { Reducer, Action } from 'redux';
 import { 
     LOGIN_REQUEST,
     LOGIN_SUCCESS,
@@ -15,7 +15,7 @@ const defaultState = {
     isAuthenticated: false,
 };
 
-function loginReducer(state: LoginState = defaultState, action: any) {
+function loginReducer(state: LoginState = defaultState, action: Action) {
   switch (action.type) {
     case LOGIN_REQUEST: {
         return state;
