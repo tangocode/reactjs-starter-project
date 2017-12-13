@@ -15,7 +15,6 @@ The idea of having a Tangocode starter project is to reuse functionalities that 
 - [react-router v4](https://github.com/ReactTraining/react-router)
 - [redux-sagas](https://github.com/redux-saga/redux-saga/)
 - [styled-components](https://github.com/styled-components/styled-components)
-- [axios](https://github.com/axios/axios)
 
 ## Folder Structure
 ```
