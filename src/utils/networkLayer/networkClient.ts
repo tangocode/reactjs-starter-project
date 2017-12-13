@@ -1,4 +1,5 @@
 import { ApiDefinition } from './networkApiDefinition';
+import { httpMethods } from  './httpMethods';
 
 interface RequestType {
   method: string;
@@ -15,7 +16,7 @@ export default (apiDefinition) => {
     method: apiDefinition.method,
     headers: headers,
   };
-  if (apiDefinition.body) {
+  if (apiDefinition.body && apiDefinition.method !== httpMethods.GET && apiDefinition.method !== httpMethods.DELETE) {
     request.body = JSON.stringify(apiDefinition.body);
   }
 
