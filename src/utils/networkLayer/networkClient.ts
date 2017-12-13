@@ -1,15 +1,24 @@
 import { ApiDefinition } from './networkApiDefinition';
 
+interface RequestType {
+  method: string;
+  headers: Headers;
+  body?: string;
+}
+
 export default (apiDefinition) => {
   const headers = new Headers();
   for (const header of Object.keys(apiDefinition.headers)) {
     headers.append(header, apiDefinition.headers[header]);
   }
-  const request = {
+  const request: RequestType = {
     method: apiDefinition.method,
     headers: headers,
-    body: apiDefinition.body,
-  };  
+  };
+  if (apiDefinition.body) {
+    request.body = JSON.stringify(apiDefinition.body);
+  }
+
   const url =  `${apiDefinition.basePath}${encodeURI(apiDefinition.path)}`;
   return fetch(url, request)
   .then(function(response: any) {
