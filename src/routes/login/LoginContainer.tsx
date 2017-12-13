@@ -26,7 +26,7 @@ class LoginContainer extends React.Component<LoginContainerProps, {}> {
   }
 
   onAuthenticateClick() {
-    this.props.requestLogin({});
+    this.props.requestLogin({ username: 'demo-username', password: 'demo-password'});
   }
 
   render() {
