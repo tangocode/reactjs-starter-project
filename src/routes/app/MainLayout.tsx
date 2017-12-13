@@ -1,13 +1,12 @@
 import * as React from 'react';
 import { Route, match, Link } from 'react-router-dom';
-
+import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
+import actions from './../../state/actions';
 import PageAContainer from '../app/pageA/PageAContainer';
 import PageBContainer from '../app/pageB/PageBContainer';
 import HomeContainer from './home/HomeContainer';
 import { BasicButton } from '../../components/ButtonExample/index';
-import { withRouter } from 'react-router';
-import { connect } from 'react-redux';
-import { logoutRequest } from '../login/actions';
 
 export interface MainLayoutProps {
   match: match<{}>;
@@ -46,11 +45,11 @@ class MainLayout extends React.Component<MainLayoutProps, {}> {
 const mapStateToProps = (state) => ({});
 
 function mapDispatchToProps(dispatch: Function) {
-    return {
-        requestLogout: ({}) => {
-            dispatch(logoutRequest());
-        },
-    };
+  return {
+    requestLogout: ({}) => {
+        dispatch(actions.context.logoutRequest());
+    },
+  };
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MainLayout));
