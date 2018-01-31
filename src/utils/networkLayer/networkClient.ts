@@ -1,4 +1,4 @@
-import { ApiDefinition } from './networkApiDefinition';
+// import { ApiDefinition } from './networkApiDefinition';
 import { httpMethods } from  './httpMethods';
 
 interface RequestType {
