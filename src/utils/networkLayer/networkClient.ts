@@ -22,7 +22,7 @@ export default (apiDefinition) => {
 
   const url =  `${apiDefinition.basePath}${encodeURI(apiDefinition.path)}`;
   return fetch(url, request)
-  .then(function(response: any) {
+  .then(function(response: Response) {
     return response.json();
   });
 };
